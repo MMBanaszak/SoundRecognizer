@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_dark"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".recorder.RecordActivity">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/record_audio_timer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:textColor="@color/accent"
+                android:textSize="70sp"
+                tools:text="00:10:45"/>
+
+            <RelativeLayout
+                android:id="@+id/waveform_container"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/record_audio_timer">
+
+                <com.vr.record.recorder.WaveformView
+                    android:id="@+id/waveform_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/accent"/>
+
+                <com.vr.record.recorder.MarkerView
+                    android:id="@+id/startmarker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/start_marker"
+                    android:nextFocusDown="@+id/endmarker"
+                    android:src="@drawable/marker_left"/>
+
+                <com.vr.record.recorder.MarkerView
+                    android:id="@+id/endmarker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/end_marker"
+                    android:nextFocusDown="@+id/info"
+                    android:nextFocusUp="@+id/startmarker"
+                    android:src="@drawable/marker_right"/>
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/waveform_container"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@color/accent"
+                android:padding="20dp"
+                android:src="@drawable/ic_play_arrow_white_24dp"/>
+
+            <TextView
+                android:layout_marginTop="10sp"
+                android:layout_marginBottom="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/accent"
+                android:textSize="18sp"
+                android:text="Make sure that your recorded sound doesn't contain any 'noise' data. You can always select part of the sound which contains wanted sound."/>
+
+            <TextView
+                android:layout_marginTop="10sp"
+                android:layout_marginBottom="40sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/accent"
+                android:textSize="17sp"
+                android:text="Tip: When recording noise sound, be sure that sample's name contains text 'noise' - you won't be notified when noise is recognized."/>
+            </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

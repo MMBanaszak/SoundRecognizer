@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.vr.record.MainActivity">
+    <item
+        android:id="@+id/action_licenses"
+        android:orderInCategory="100"
+        android:title="@string/action_license"
+        app:showAsAction="never"/>
+</menu>
